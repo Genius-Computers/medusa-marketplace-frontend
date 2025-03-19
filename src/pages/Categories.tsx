@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout';
@@ -8,15 +7,15 @@ import BlurImage from '@/components/ui/BlurImage';
 import { ArrowRight } from 'lucide-react';
 
 const categoryImages: Record<string, string> = {
-  electronics: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=1000',
-  accessories: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1000',
-  homeware: 'https://images.unsplash.com/photo-1551907234-fb773fb08a8a?q=80&w=1000',
+  electronics: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000',
+  accessories: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000',
+  homeware: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000',
 };
 
 const categoryDescriptions: Record<string, string> = {
-  electronics: 'Premium audio, smart devices, and tech accessories for modern living.',
-  accessories: 'Watches, wallets, and everyday essentials defined by minimalist design.',
-  homeware: 'Thoughtfully crafted objects that bring beauty and function to your home.',
+  electronics: 'Premium audio devices, laptops, and tech essentials for the modern digital lifestyle.',
+  accessories: 'Smartwatches, chargers, and tech peripherals designed with elegance and functionality.',
+  homeware: 'Smart home devices and connected solutions that bring intelligence to everyday living.',
 };
 
 const Categories: React.FC = () => {

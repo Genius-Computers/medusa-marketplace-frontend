@@ -6,20 +6,20 @@ import { cn } from '@/lib/utils';
 const categories = [
   {
     name: 'Electronics',
-    image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=1000',
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000',
     description: 'Premium audio, smart devices, and tech accessories',
     slug: 'electronics',
   },
   {
     name: 'Accessories',
-    image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1000',
-    description: 'Watches, wallets, and everyday essentials',
+    image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=1000',
+    description: 'Tech peripherals and everyday essentials',
     slug: 'accessories',
   },
   {
     name: 'Homeware',
-    image: 'https://images.unsplash.com/photo-1551907234-fb773fb08a8a?q=80&w=1000',
-    description: 'Stylish, functional pieces for modern living',
+    image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1000',
+    description: 'Smart home devices and connected living solutions',
     slug: 'homeware',
   },
 ];

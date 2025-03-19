@@ -11,8 +11,8 @@ const Hero: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
-          src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1770" 
-          alt="Minimalist interior design"
+          src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1000" 
+          alt="Modern electronics workspace"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20" />
@@ -28,12 +28,12 @@ const Hero: React.FC = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl font-light tracking-tight text-white mb-6">
-            <span className="block">Timeless Design.</span>
-            <span className="block">Modern Functionality.</span>
+            <span className="block">Cutting-Edge Tech.</span>
+            <span className="block">Exceptional Experience.</span>
           </h1>
           
           <p className="text-lg text-white/80 mb-8 max-w-xl">
-            Discover our curated collection of minimalist products designed to enhance your everyday experience with elegant simplicity.
+            Discover our curated collection of premium electronics designed to enhance your digital lifestyle with sleek functionality.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">

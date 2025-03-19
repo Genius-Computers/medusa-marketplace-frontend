@@ -56,7 +56,7 @@ const Header: React.FC = () => {
               to="/" 
               className="text-xl font-semibold tracking-tight"
             >
-              MEDUSA
+              GENIUS
             </Link>
           </div>
           

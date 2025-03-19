@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
           {/* Logo and Description */}
           <div className="md:col-span-1 space-y-4">
             <Link to="/" className="text-xl font-semibold tracking-tight">
-              MEDUSA
+              GENIUS
             </Link>
             <p className="text-muted-foreground text-sm mt-2 max-w-xs">
               Premium shopping experience with carefully curated products designed to elevate your lifestyle.
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">support@medusastore.com</span>
+                <span className="text-sm text-muted-foreground">support@geniusstore.com</span>
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
         <div className="mt-12 pt-6 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} Medusa. All rights reserved.
+              © {new Date().getFullYear()} Genius. All rights reserved.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <Button variant="ghost" size="sm" className="text-xs text-muted-foreground">

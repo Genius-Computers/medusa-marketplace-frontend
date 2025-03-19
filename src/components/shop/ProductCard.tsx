@@ -35,7 +35,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className, featured 
     <div 
       className={cn(
         'group relative rounded-lg overflow-hidden card-hover bg-background',
-        featured ? 'md:col-span-2 aspect-[16/9]' : 'aspect-[4/5]', // Changed from aspect-[3/4] to aspect-[4/5]
+        featured ? 'md:col-span-2 aspect-[16/9]' : 'aspect-[16/10]', // Changed to landscape aspect ratio
         className
       )}
     >

@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
               GENIUS
             </Link>
             <p className="text-muted-foreground text-sm mt-2 max-w-xs">
-              Premium shopping experience with carefully curated products designed to elevate your lifestyle.
+              Premium electronics shopping experience with carefully curated products designed to elevate your lifestyle.
             </p>
             <div className="flex space-x-4 mt-4">
               <Button variant="ghost" size="icon" className="rounded-full h-8 w-8">
@@ -85,15 +85,15 @@ const Footer: React.FC = () => {
             <div className="mt-6 space-y-2">
               <div className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 text-muted-foreground mt-0.5" />
-                <span className="text-sm text-muted-foreground">1234 Design Street, Creative City, 98765</span>
+                <span className="text-sm text-muted-foreground">Riyadh Business District, Kingdom of Saudi Arabia</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">+1 (234) 567-8901</span>
+                <span className="text-sm text-muted-foreground">+966 (5) 123-4567</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">support@geniusstore.com</span>
+                <span className="text-sm text-muted-foreground">admin@gencss.com</span>
               </div>
             </div>
           </div>

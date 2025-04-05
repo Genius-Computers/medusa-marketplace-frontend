@@ -52,7 +52,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className, featured 
           <div className="flex items-start justify-between">
             <div>
               <h3 className="text-white font-medium">{product.title}</h3>
-              <div className="text-white/90 text-sm mt-1">${product.price.toFixed(2)}</div>
+              <div className="text-white/90 text-sm mt-1">{product.price} {product.currency}</div>
             </div>
             
             <Button

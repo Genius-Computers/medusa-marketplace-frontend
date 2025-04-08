@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 interface ColorVariant {
@@ -10,6 +11,7 @@ interface Product {
   price: number;
   image: string;
   colors: ColorVariant[];
+  link?: string;
 }
 
 const products: Product[] = [
@@ -21,7 +23,8 @@ const products: Product[] = [
       { color: "Black", class: "bg-black" },
       { color: "Orange", class: "bg-orange-400" },
       { color: "White", class: "bg-white border border-gray-300" }
-    ]
+    ],
+    link: "/products/pro-airbuds"
   },
   {
     name: "Quietcomfort Headphone",
@@ -120,7 +123,7 @@ const ProductListing = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
           {products.map((product, index) => (
-            <div key={index} className="group cursor-pointer">
+            <Link key={index} href={product.link || '#'} className="group cursor-pointer">
               <div className="bg-gray-100 rounded-lg overflow-hidden mb-4 aspect-square">
                 <img 
                   src={product.image} 
@@ -143,7 +146,7 @@ const ProductListing = () => {
                   />
                 ))}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

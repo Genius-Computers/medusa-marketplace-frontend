@@ -5,7 +5,7 @@ const categories = [
   {
     name: 'Earbuds',
     image: 'https://images.unsplash.com/photo-1631867675167-90a456a90863?auto=format&fit=crop&w=300&h=300&q=80',
-    link: '/products/pro-airbuds'
+    link: '#'
   },
   {
     name: 'Watch',

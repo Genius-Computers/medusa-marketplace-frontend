@@ -13,7 +13,7 @@ const featuredItems: FeaturedItem[] = [
     icon: <Heart className="w-6 h-6" />,
     title: "Smart Headphone",
     description: "Perfect for work, travel, and everything in between.",
-    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
   },
   {
     icon: <Phone className="w-6 h-6" />,

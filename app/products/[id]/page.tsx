@@ -5,9 +5,13 @@ import Image from 'next/image';
 import Nav from '@/components/nav';
 import Footer from '@/components/Footer';
 import { Minus, Plus } from 'lucide-react';
-import ProductListing from '@/components/ProductListing';
+import ProductListing, { PRODUCTS } from '@/components/ProductListing';
+import { useParams } from 'next/navigation';
 
 export default function ProAirbudsPage() {
+  const params = useParams();
+  const productId = params.id;
+  const product = PRODUCTS.find(product => product.id === parseInt(productId as string));
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState('black');
 
@@ -30,7 +34,7 @@ export default function ProAirbudsPage() {
         <div className="text-sm">
           <Link href="/" className="hover:underline">Home</Link>
           <span className="mx-2">/</span>
-          <span>Pro airbuds</span>
+          <span>{product?.name}</span>
         </div>
       </div>
 
@@ -41,8 +45,8 @@ export default function ProAirbudsPage() {
           <div className="md:w-1/2 bg-gray-100 rounded-lg overflow-hidden">
             <div className="relative w-full h-[500px]">
               <Image 
-                src="/images/pro-airbuds.svg" 
-                alt="Pro airbuds" 
+                src={product?.image || ''} 
+                alt={product?.name || ''} 
                 fill 
                 className="object-contain" 
                 priority
@@ -52,7 +56,7 @@ export default function ProAirbudsPage() {
 
           {/* Product Details */}
           <div className="md:w-1/2">
-            <h1 className="text-3xl font-bold mb-4">Pro airbuds</h1>
+            <h1 className="text-3xl font-bold mb-4">{product?.name}</h1>
             
             <p className="text-gray-700 mb-6">
               This is a demonstration store. This demo product is not available for purchase. 
@@ -61,23 +65,21 @@ export default function ProAirbudsPage() {
 
             {/* Price */}
             <div className="mb-6">
-              <h2 className="text-3xl font-bold">SAR 3,600.00</h2>
+              <h2 className="text-3xl font-bold">SAR {product?.price.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</h2>
             </div>
 
             {/* Color Selection */}
             <div className="mb-6">
-              <p className="mb-2">Select color : Black</p>
+              <p className="mb-2">Select color : {selectedColor}</p>
               <div className="flex gap-2">
-                <button 
-                  className={`w-8 h-8 rounded-full bg-black ${selectedColor === 'black' ? 'ring-2 ring-offset-2 ring-gray-400' : ''}`}
-                  onClick={() => setSelectedColor('black')}
-                  aria-label="Select Black color"
-                />
-                <button 
-                  className={`w-8 h-8 rounded-full bg-gray-500 ${selectedColor === 'gray' ? 'ring-2 ring-offset-2 ring-gray-400' : ''}`}
-                  onClick={() => setSelectedColor('gray')}
-                  aria-label="Select Gray color"
-                />
+                {product?.colors.map((color, index) => (
+                  <button 
+                    key={index}
+                    className={`w-8 h-8 rounded-full bg-black ${selectedColor === color.color ? 'ring-2 ring-offset-2 ring-gray-400' : ''}`}
+                    onClick={() => setSelectedColor(color.color)}
+                    aria-label={`Select ${color.color} color`}
+                  />
+                ))}
               </div>
             </div>
 

@@ -7,15 +7,16 @@ interface ColorVariant {
 }
 
 interface Product {
+  id: number;
   name: string;
   price: number;
   image: string;
   colors: ColorVariant[];
-  link?: string;
 }
 
-const products: Product[] = [
+export const PRODUCTS: Product[] = [
   {
+    id: 1,
     name: "Round box speaker",
     price: 4000.00,
     image: "https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=600&q=80",
@@ -24,9 +25,9 @@ const products: Product[] = [
       { color: "Orange", class: "bg-orange-400" },
       { color: "White", class: "bg-white border border-gray-300" }
     ],
-    link: "/products/pro-airbuds"
   },
   {
+    id: 2,
     name: "Quietcomfort Headphone",
     price: 2400.00,
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
@@ -36,6 +37,7 @@ const products: Product[] = [
     ]
   },
   {
+    id: 3,
     name: "Projector",
     price: 1230000.00,
     image: "https://images.unsplash.com/photo-1626379953822-baec19c3accd?auto=format&fit=crop&w=600&q=80",
@@ -46,6 +48,7 @@ const products: Product[] = [
     ]
   },
   {
+    id: 4,
     name: "Pro max airbuds",
     price: 5100.00,
     image: "https://images.unsplash.com/photo-1631867675167-90a456a90863?auto=format&fit=crop&w=600&q=80",
@@ -55,6 +58,7 @@ const products: Product[] = [
     ]
   },
   {
+    id: 5,
     name: "Pro airbuds",
     price: 3600.00,
     image: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=600&q=80",
@@ -64,6 +68,7 @@ const products: Product[] = [
     ]
   },
   {
+    id: 6,
     name: "Pro airbuds",
     price: 3600.00,
     image: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=600&q=80",
@@ -73,6 +78,7 @@ const products: Product[] = [
     ]
   },
   {
+    id: 7,
     name: "Pro max airbuds",
     price: 5100.00,
     image: "https://images.unsplash.com/photo-1631867675167-90a456a90863?auto=format&fit=crop&w=600&q=80",
@@ -82,6 +88,7 @@ const products: Product[] = [
     ]
   },
   {
+    id: 8,
     name: "Projector",
     price: 1230000.00,
     image: "https://images.unsplash.com/photo-1626379953822-baec19c3accd?auto=format&fit=crop&w=600&q=80",
@@ -92,6 +99,7 @@ const products: Product[] = [
     ]
   },
   {
+    id: 9,
     name: "Quietcomfort Headphone",
     price: 2400.00,
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
@@ -101,6 +109,7 @@ const products: Product[] = [
     ]
   },
   {
+    id: 10,
     name: "Round box speaker",
     price: 4000.00,
     image: "https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=600&q=80",
@@ -122,8 +131,8 @@ const ProductListing = () => {
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-          {products.map((product, index) => (
-            <Link key={index} href={product.link || '#'} className="group cursor-pointer">
+          {PRODUCTS.map((product, index) => (
+            <Link key={index} href={`/products/${product.id}`} className="group cursor-pointer">
               <div className="bg-gray-100 rounded-lg overflow-hidden mb-4 aspect-square">
                 <img 
                   src={product.image} 

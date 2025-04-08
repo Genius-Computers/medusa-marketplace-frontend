@@ -123,7 +123,7 @@ const ProductDetail: React.FC = () => {
             </div>
             
             <div className="text-2xl font-medium mb-6">
-              ${product.price.toFixed(2)}
+              SAR{product.price.toFixed(2)}
             </div>
             
             <p className="text-muted-foreground mb-8">

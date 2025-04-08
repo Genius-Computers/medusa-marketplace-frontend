@@ -152,7 +152,7 @@ const Footer = () => {
       <div className="bg-gray-900 border-t border-gray-800 py-6 text-gray-400">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
-            <p>Copyright© 2025 Yuva-theme-amaze Powered by Shopify</p>
+            <p>Copyright© 2025 Genius Company</p>
           </div>
           
           <div className="flex items-center gap-2">

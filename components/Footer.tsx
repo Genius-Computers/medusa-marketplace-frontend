@@ -72,7 +72,7 @@ const Footer = () => {
                 </span>
               </h2>
               <p className="text-gray-400">
-                Empower your e-commerce store with a beautiful look & ultra-modern features. With a modern yet elegant look and feel for your online fashion store, the Shopify Yuva theme comes with limitless possibilities to help you sell with finesse.
+                Discover premium tech products with our sleek, modern e-commerce experience. Our carefully curated collection of electronics and gadgets combines quality with style, offering you the latest innovations to enhance your digital lifestyle.
               </p>
             </div>
           </div>

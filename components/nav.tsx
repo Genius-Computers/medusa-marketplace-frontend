@@ -1,8 +1,11 @@
 import { Camera, ChevronDown, Instagram, Laptop, Linkedin, Search, ShoppingBag, User, Watch } from "lucide-react";
 import { Facebook, Twitter } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
+import CartSidebar from "./cartSidebar";
+import Link from "next/link";
 
 const Nav = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
   return (
     <>
       <div className="bg-black text-white py-2 px-4">
@@ -40,12 +43,14 @@ const Nav = () => {
               </div>
             </div>
 
-            <div className="text-2xl font-bold">GENIUS</div>
+            <Link href="/" className="text-2xl font-bold">
+              <span className="font-['Biduan']">GENCSS</span>
+            </Link>
 
             <div className="flex items-center gap-6">
               <Search className="w-6 h-6 cursor-pointer" />
               <User className="w-6 h-6 cursor-pointer" />
-              <div className="relative">
+              <div className="relative" onClick={() => setIsCartOpen(true)}>
                 <ShoppingBag className="w-6 h-6 cursor-pointer" />
                 <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                   0
@@ -59,20 +64,20 @@ const Nav = () => {
         <div className="container mx-auto px-4 whitespace-nowrap">
           <div className="flex md:overflow-hidden overflow-x-auto items-center justify-between h-12">
             <nav className="flex items-center gap-8">
-              <a href="#" className="text-sm hover:text-gray-600">
+              <Link href="/" className="text-sm hover:text-gray-600">
                 Home
-              </a>
+              </Link>
               <div className="relative group">
-                <a href="#" className="text-sm hover:text-gray-600 flex items-center gap-1">
+                <Link href="/products" className="text-sm hover:text-gray-600 flex items-center gap-1">
                   Catalog
                   <ChevronDown size={16} />
-                </a>
+                </Link>
               </div>
               <div className="relative group">
-                <a href="#" className="text-sm hover:text-gray-600 flex items-center gap-1">
+                <Link href="/products" className="text-sm hover:text-gray-600 flex items-center gap-1">
                   New arrivals
                   <ChevronDown size={16} />
-                </a>
+                </Link>
               </div>
               <a href="#" className="text-sm hover:text-gray-600">
                 About
@@ -84,30 +89,31 @@ const Nav = () => {
                 Blogs
               </a>
               <div className="relative group">
-                <a href="#" className="text-sm hover:text-gray-600 flex items-center gap-1">
+                <Link href="/products" className="text-sm hover:text-gray-600 flex items-center gap-1">
                   Shop
                   <ChevronDown size={16} />
-                </a>
+                </Link>
               </div>
-              <a href="#" className="text-sm hover:text-gray-600">
+              <Link href="/products" className="text-sm hover:text-gray-600">
                 Smart Watches
-              </a>
-              <a href="#" className="text-sm hover:text-gray-600">
+              </Link>
+              <Link href="/products" className="text-sm hover:text-gray-600">
                 New products
-              </a>
+              </Link>
             </nav>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2 text-sm">
                 <span>🌍</span>
                 <span>Shipping & Return</span>
               </div>
-              <div className="flex items-center gap-2 text-sm">
+              <Link href="/products" className="flex items-center gap-2 text-sm">
                 <span>All categories</span>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
       </div>
+      <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </>
   );
 };

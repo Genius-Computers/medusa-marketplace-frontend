@@ -2,8 +2,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Nav from '@/components/nav';
-import Footer from '@/components/Footer';
 import { Minus, Plus } from 'lucide-react';
 import ProductListing, { PRODUCTS } from '@/components/ProductListing';
 import { useParams } from 'next/navigation';
@@ -26,9 +24,7 @@ export default function ProAirbudsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black">
-      <Nav />
-      
+    <div className="bg-white text-black">
       {/* Breadcrumb */}
       <div className="container mx-auto px-4 py-4">
         <div className="text-sm">
@@ -75,9 +71,9 @@ export default function ProAirbudsPage() {
                 {product?.colors.map((color, index) => (
                   <button 
                     key={index}
-                    className={`w-8 h-8 rounded-full bg-black ${selectedColor === color.color ? 'ring-2 ring-offset-2 ring-gray-400' : ''}`}
-                    onClick={() => setSelectedColor(color.color)}
-                    aria-label={`Select ${color.color} color`}
+                    className={`w-8 h-8 rounded-full bg-black ${selectedColor === color ? 'ring-2 ring-offset-2 ring-gray-400' : ''}`}
+                    onClick={() => setSelectedColor(color)}
+                    aria-label={`Select ${color} color`}
                   />
                 ))}
               </div>
@@ -130,8 +126,6 @@ export default function ProAirbudsPage() {
         </div>
       </main>
       <ProductListing />
-
-      <Footer />
     </div>
   );
 } 

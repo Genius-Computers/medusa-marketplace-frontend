@@ -64,7 +64,7 @@ const Footer = () => {
           <div className="mb-10">
             <div className="flex flex-col gap-4 max-w-3xl">
               <h2 className="text-2xl font-bold text-white flex items-center">
-                GENIUS
+                <span className="font-['Biduan']">GENCSS</span>
                 <span className="ml-1">
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                     <path d="M12 1a4 4 0 014 4v6h1a3 3 0 010 6h-1v2a1 1 0 01-1 1h-6a1 1 0 01-1-1v-2H7a3 3 0 010-6h1V5a4 4 0 014-4z"></path>
@@ -152,7 +152,7 @@ const Footer = () => {
       <div className="bg-gray-900 border-t border-gray-800 py-6 text-gray-400">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
-            <p>Copyright© 2025 Genius Company</p>
+            <p>Copyright© 2025 Gencss Company</p>
           </div>
           
           <div className="flex items-center gap-2">

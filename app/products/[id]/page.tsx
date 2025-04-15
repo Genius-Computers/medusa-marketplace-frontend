@@ -39,7 +39,7 @@ export default function ProAirbudsPage() {
         <div className="flex flex-col md:flex-row gap-8">
           {/* Product Image */}
           <div className="md:w-1/2 bg-gray-100 rounded-lg overflow-hidden">
-            <div className="relative w-full h-[500px]">
+            <div className="relative w-full aspect-video md:h-[500px]">
               <Image 
                 src={product?.image || ''} 
                 alt={product?.name || ''} 

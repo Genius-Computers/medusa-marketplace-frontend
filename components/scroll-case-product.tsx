@@ -142,7 +142,7 @@ const ScrollCaseProduct = () => {
                       <h3 className="font-medium mb-2">{product.name}</h3>
                       <div className="flex items-center justify-between">
                         <p className="font-semibold">
-                          ₹{product.price.toLocaleString('en-IN')}
+                          SAR{product.price.toLocaleString('en-IN')}
                         </p>
                         <div className="flex gap-1">
                           {product.colors.map((color, index) => (

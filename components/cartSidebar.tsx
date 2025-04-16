@@ -1,6 +1,7 @@
 import React from 'react';
-import { X, Minus, Plus, ShoppingBag } from 'lucide-react';
+import { X, Minus, Plus, ShoppingBag} from 'lucide-react';
 import { Product } from './product';
+import Link from 'next/link';
 interface CartItem extends Product {
   quantity: number;
 }
@@ -142,11 +143,11 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
             CHECKOUT
           </button>
           
-          <button 
-            onClick={onClose}
+          <button
+            type="button"
             className="w-full text-center mt-2 text-gray-600 hover:text-gray-800"
           >
-            VIEW CART
+            <Link href="/cart">VIEW CART</Link>
           </button>
         </div>
       </div>

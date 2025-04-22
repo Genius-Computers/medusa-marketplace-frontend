@@ -43,7 +43,7 @@ const Nav = () => {
               </div>
             </div>
 
-            <Link href="/" className="text-2xl font-bold">
+            <Link href="/" className="text-4xl font-bold">
               <span className="font-['Biduan']">GENCSS</span>
             </Link>
 

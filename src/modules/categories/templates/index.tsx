@@ -1,21 +1,26 @@
-import { notFound } from "next/navigation"
-import { Suspense } from "react"
-
-import InteractiveLink from "@modules/common/components/interactive-link"
+import { ArrowUturnLeft } from "@medusajs/icons"
+import { HttpTypes } from "@medusajs/types"
+import { Button, Container, Text } from "@medusajs/ui"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
-import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import PaginatedProducts from "@modules/store/templates/paginated-products"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { HttpTypes } from "@medusajs/types"
+import { notFound } from "next/navigation"
+import { Suspense } from "react"
+import CategoryBreadcrumb from "../components/category-breadcrumb"
+import RefinementVerticalList from "@modules/store/components/refinement-vertical-list"
+import MobileFilters from "@modules/store/components/mobile-filters"
+import RefinementList from "@modules/store/components/refinement-list"
 
 export default function CategoryTemplate({
-  category,
+  categories,
+  currentCategory,
   sortBy,
   page,
   countryCode,
 }: {
-  category: HttpTypes.StoreProductCategory
+  categories: HttpTypes.StoreProductCategory[]
+  currentCategory: HttpTypes.StoreProductCategory
   sortBy?: SortOptions
   page?: string
   countryCode: string
@@ -23,75 +28,63 @@ export default function CategoryTemplate({
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
 
-  if (!category || !countryCode) notFound()
-
-  const parents = [] as HttpTypes.StoreProductCategory[]
-
-  const getParents = (category: HttpTypes.StoreProductCategory) => {
-    if (category.parent_category) {
-      parents.push(category.parent_category)
-      getParents(category.parent_category)
-    }
-  }
-
-  getParents(category)
+  if (!currentCategory || !countryCode) notFound()
 
   return (
-    <div
-      className="flex flex-col small:flex-row small:items-start py-6 content-container"
-      data-testid="category-container"
-    >
-      <RefinementList sortBy={sort} data-testid="sort-by-container" gridView={4} />
-      <div className="w-full">
-        <div className="flex flex-row mb-8 text-2xl-semi gap-4">
-          {parents &&
-            parents.map((parent) => (
-              <span key={parent.id} className="text-ui-fg-subtle">
-                <LocalizedClientLink
-                  className="mr-4 hover:text-black"
-                  href={`/categories/${parent.handle}`}
-                  data-testid="sort-by-link"
-                >
-                  {parent.name}
-                </LocalizedClientLink>
-                /
-              </span>
-            ))}
-          <h1 data-testid="category-page-title">{category.name}</h1>
+    <div className="bg-neutral-100">
+      <div
+        className="flex flex-col py-6 content-container gap-4"
+        data-testid="category-container"
+      >
+        <CategoryBreadcrumb
+          categories={categories}
+          category={currentCategory}
+        />
+        <MobileFilters sortBy={sort} categories={categories} />
+        <div className="flex flex-col small:flex-row small:items-start gap-3">
+        <div className="hidden lg:block">
+          <RefinementVerticalList categories={categories}/>
         </div>
-        {category.description && (
-          <div className="mb-8 text-base-regular">
-            <p>{category.description}</p>
+          <div className="w-full">
+          <div className="mb-2 text-2xl-semi">
+            <h1 data-testid="store-page-title">{currentCategory.name}</h1>
           </div>
-        )}
-        {category.category_children && (
-          <div className="mb-8 text-base-large">
-            <ul className="grid grid-cols-1 gap-2">
-              {category.category_children?.map((c) => (
-                <li key={c.id}>
-                  <InteractiveLink href={`/categories/${c.handle}`}>
-                    {c.name}
-                  </InteractiveLink>
-                </li>
-              ))}
-            </ul>
+          <div className="hidden lg:block">
+            <RefinementList sortBy={sort} />
           </div>
-        )}
-        <Suspense
-          fallback={
-            <SkeletonProductGrid
-              numberOfProducts={category.products?.length ?? 8}
-            />
-          }
-        >
-          <PaginatedProducts
-            sortBy={sort}
-            page={pageNumber}
-            categoryId={category.id}
-            countryCode={countryCode}
-            gridView={4}
-          />
-        </Suspense>
+            {currentCategory.products?.length === 0 ? (
+              <Container className="flex flex-col gap-2 justify-center text-center items-center text-sm text-neutral-500">
+                <Text className="font-medium">
+                  No products found for this category.
+                </Text>
+                <LocalizedClientLink
+                  href="/store"
+                  className="flex gap-2 items-center"
+                >
+                  <Button variant="secondary">
+                    Back to all products
+                    <ArrowUturnLeft className="w-4 h-4" />
+                  </Button>
+                </LocalizedClientLink>
+              </Container>
+            ) : (
+              <Suspense
+                fallback={
+                  <SkeletonProductGrid
+                    numberOfProducts={currentCategory.products?.length}
+                  />
+                }
+              >
+                <PaginatedProducts
+                  sortBy={sort}
+                  page={pageNumber}
+                  categoryId={currentCategory.id}
+                  countryCode={countryCode}
+                />
+              </Suspense>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   )

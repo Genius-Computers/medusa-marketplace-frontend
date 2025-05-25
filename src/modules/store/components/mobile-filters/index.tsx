@@ -6,17 +6,16 @@ import { Fragment } from "react"
 import { SortOptions } from "../refinement-list/sort-products"
 import RefinementVerticalList from "../refinement-vertical-list"
 import RefinementList from "../refinement-list"
-import { HttpTypes } from "@medusajs/types"
 import { Filter, X } from "lucide-react"
 import useToggleState from "@lib/hooks/use-toggle-state"
+import { HttpTypes } from "@medusajs/types"
 
 type MobileFiltersProps = {
-  products: HttpTypes.StoreProduct[]
   sortBy?: SortOptions
-  gridView: number
+  categories?: HttpTypes.StoreProductCategory[]
 }
 
-const MobileFilters = ({ products, sortBy = "created_at", gridView }: MobileFiltersProps) => {
+const MobileFilters = ({ sortBy = "created_at", categories }: MobileFiltersProps) => {
   const { state, open, close } = useToggleState()
 
   return (
@@ -74,12 +73,12 @@ const MobileFilters = ({ products, sortBy = "created_at", gridView }: MobileFilt
                   
                   <div className="mb-6">
                     <h4 className="text-base font-medium mb-3">Sort</h4>
-                    <RefinementList sortBy={sortBy} gridView={gridView} />
+                    <RefinementList sortBy={sortBy} />
                   </div>
                   
                   <div className="flex-1">
                     <h4 className="text-base font-medium mb-3">Filter</h4>
-                    <RefinementVerticalList products={products} />
+                    <RefinementVerticalList categories={categories} />
                   </div>
                   
                   <div className="mt-6">

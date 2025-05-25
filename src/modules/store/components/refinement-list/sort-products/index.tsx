@@ -22,8 +22,6 @@ export type SortOptions = "price_asc" | "price_desc" | "created_at"
 type SortProductsProps = {
   sortBy: SortOptions
   setQueryParams: (name: string, value: SortOptions) => void
-  gridView: number
-  setGridView: (value: number) => void
   "data-testid"?: string
 }
 
@@ -46,8 +44,6 @@ const SortProducts = ({
   "data-testid": dataTestId,
   sortBy,
   setQueryParams,
-  gridView,
-  setGridView,
 }: SortProductsProps) => {
   const handleSort = (value: SortOptions) => {
     setQueryParams("sortBy", value)
@@ -59,44 +55,9 @@ const SortProducts = ({
 
   return (
     <>
-      <div className="flex items-center justify-end">
+      <div className="flex items-center justify-end mb-4">
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setGridView(2)}
-              className={`p-2 rounded-lg hover:bg-gray-100 ${
-                gridView === 2 ? "bg-gray-100" : ""
-              }`}
-            >
-              <Grid2X2 className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => setGridView(3)}
-              className={`p-2 rounded-lg hidden md:block hover:bg-gray-100 ${
-                gridView === 3 ? "bg-gray-100" : ""
-              }`}
-            >
-              <Grid3X3 className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => setGridView(4)}
-              className={`p-2 rounded-lg hidden md:block hover:bg-gray-100 ${
-                gridView === 4 ? "bg-gray-100" : ""
-              }`}
-            >
-              <LayoutGrid className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => setGridView(1)}
-              className={`p-2 rounded-lg hover:bg-gray-100 ${
-                gridView === 1 ? "bg-gray-100" : ""
-              }`}
-            >
-              <LayoutList className="w-5 h-5" />
-            </button>
-          </div>
-
-          <div className="flex items-center gap-2 border-l pl-4">
+          <div className="flex items-center gap-2 pl-4">
             <Popover className="relative">
               {({ open }) => (
                 <>

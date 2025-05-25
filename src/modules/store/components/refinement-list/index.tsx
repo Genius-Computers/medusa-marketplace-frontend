@@ -7,7 +7,6 @@ import SortProducts, { SortOptions } from "./sort-products"
 
 type RefinementListProps = {
   sortBy: SortOptions
-  gridView: number
   search?: boolean
   "data-testid"?: string
 }
@@ -15,7 +14,6 @@ type RefinementListProps = {
 const RefinementList = ({
   sortBy,
   "data-testid": dataTestId,
-  gridView,
 }: RefinementListProps) => {
   const router = useRouter()
   const pathname = usePathname()
@@ -36,17 +34,11 @@ const RefinementList = ({
     router.replace(`${pathname}?${query}`)
   }
 
-  
-
   return (
     <SortProducts
       sortBy={sortBy}
       setQueryParams={setQueryParams}
       data-testid={dataTestId}
-      gridView={gridView}
-      setGridView={(value: number) =>
-        setQueryParams("gridView", value.toString())
-      }
     />
   )
 }

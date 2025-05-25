@@ -12,9 +12,6 @@ type Props = {
   searchParams: Promise<{
     page?: string
     sortBy?: SortOptions
-    gridView?: string
-    categoryId?: string
-    priceRange?: string[]
   }>
 }
 
@@ -72,7 +69,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 export default async function CollectionPage(props: Props) {
   const searchParams = await props.searchParams
   const params = await props.params
-  const { sortBy, page, gridView, categoryId, priceRange } = searchParams
+  const { sortBy, page } = searchParams
 
   const collection = await getCollectionByHandle(params.handle).then(
     (collection: StoreCollection) => collection
@@ -88,9 +85,6 @@ export default async function CollectionPage(props: Props) {
       page={page}
       sortBy={sortBy}
       countryCode={params.countryCode}
-      gridView={gridView ? parseInt(gridView) : undefined}
-      categoryId={categoryId}
-      priceRange={priceRange}
     />
   )
 }

@@ -74,9 +74,12 @@ export default async function CategoryPage(props: Props) {
     notFound()
   }
 
+  const categories = await listCategories()
+
   return (
     <CategoryTemplate
-      category={productCategory}
+      categories={categories}
+      currentCategory={productCategory}
       sortBy={sortBy}
       page={page}
       countryCode={params.countryCode}

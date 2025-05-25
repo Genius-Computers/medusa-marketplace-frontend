@@ -3,14 +3,19 @@ import { Suspense } from "react"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import {
+  BriefcaseMedical,
   Camera,
   ChevronDown,
   Facebook,
   Instagram,
   Laptop,
   Linkedin,
+  Network,
+  Phone,
+  Router,
   Search,
   ShoppingBag,
+  Smartphone,
   Twitter,
   User,
   Watch,
@@ -23,18 +28,15 @@ export default async function Nav(props: { params: { countryCode: string } }) {
       <div className="bg-black text-white py-2 px-4">
         <div className="md:container mx-auto flex justify-between items-center text-sm">
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <span>EN</span>
-              <ChevronDown size={16} />
-            </div>
-            <div className="flex items-center gap-2">
-              <span>🇸🇦</span>
-              <span>SAR</span>
-              <ChevronDown size={16} />
-            </div>
+            {props.params.countryCode === "sa" && (
+              <div className="flex items-center gap-2">
+                <span>🇸🇦</span>
+                <span>Saudi Arabia</span>
+              </div>
+            )}
           </div>
 
-          <div className="text-center">Up to 50% OFF on Cyber Monday Deals</div>
+          <div className="text-center">Up to 50% OFF on Today's Deals</div>
 
           <div className="flex items-center gap-4">
             <Facebook
@@ -58,9 +60,15 @@ export default async function Nav(props: { params: { countryCode: string } }) {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-6">
-                <Camera className="w-6 h-6" />
-                <Laptop className="w-6 h-6" />
-                <Watch className="w-6 h-6" />
+                <LocalizedClientLink href="/categories/smart-phone">
+                  <Smartphone className="w-6 h-6" />
+                </LocalizedClientLink>
+                <LocalizedClientLink href="/categories/network-infrastructure">
+                  <Router className="w-6 h-6" />
+                </LocalizedClientLink>
+                <LocalizedClientLink href="/categories/biomedical-equipment">
+                  <BriefcaseMedical className="w-6 h-6" />
+                </LocalizedClientLink>
               </div>
             </div>
 
@@ -110,28 +118,13 @@ export default async function Nav(props: { params: { countryCode: string } }) {
               </LocalizedClientLink>
               <div className="relative group">
                 <LocalizedClientLink
-                  href="/collections"
+                  href="/collections/featured"
                   className="text-sm hover:text-gray-600 flex items-center gap-1"
                 >
-                  Catalog
+                  Featured
                   <ChevronDown size={16} />
                 </LocalizedClientLink>
               </div>
-              <div className="relative group">
-                <LocalizedClientLink
-                  href="/store"
-                  className="text-sm hover:text-gray-600 flex items-center gap-1"
-                >
-                  New arrivals
-                  <ChevronDown size={16} />
-                </LocalizedClientLink>
-              </div>
-              <LocalizedClientLink
-                href="/about"
-                className="text-sm hover:text-gray-600"
-              >
-                About
-              </LocalizedClientLink>
               <div className="relative group">
                 <LocalizedClientLink
                   href="/store"
@@ -142,16 +135,10 @@ export default async function Nav(props: { params: { countryCode: string } }) {
                 </LocalizedClientLink>
               </div>
               <LocalizedClientLink
-                href="/categories/smart-watches"
+                href="/about"
                 className="text-sm hover:text-gray-600"
               >
-                Smart Watches
-              </LocalizedClientLink>
-              <LocalizedClientLink
-                href="/store"
-                className="text-sm hover:text-gray-600"
-              >
-                New products
+                About
               </LocalizedClientLink>
             </nav>
             <div className="flex items-center gap-6">
@@ -159,12 +146,6 @@ export default async function Nav(props: { params: { countryCode: string } }) {
                 <span>🌍</span>
                 <span>Shipping & Return</span>
               </div>
-              <LocalizedClientLink
-                href="/collections"
-                className="flex items-center gap-2 text-sm"
-              >
-                <span>All categories</span>
-              </LocalizedClientLink>
             </div>
           </div>
         </div>

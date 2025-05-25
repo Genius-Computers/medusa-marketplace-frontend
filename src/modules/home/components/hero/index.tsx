@@ -104,7 +104,7 @@ const Hero = () => {
 
       <div className="md:hidden">
         {/* Product grid */}
-        <div className="flex overflow-scroll gap-1 mt-1">
+        <div className="grid grid-cols-2 gap-1 mt-1">
           {heroSlides.map((slide, index) => (
             <div
               key={index}

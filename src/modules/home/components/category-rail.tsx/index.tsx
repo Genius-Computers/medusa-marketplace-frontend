@@ -42,7 +42,13 @@ const CategoryRail = () => {
         Shop Category
       </Text>
       <div className="md:container md:px-32 md:mx-auto">
-        <div className="flex items-center justify-between gap-4 text-black overflow-scroll shrink-0">
+        <div 
+          className="flex items-center justify-between gap-4 px-2 text-black overflow-x-auto shrink-0 [&::-webkit-scrollbar]:hidden"
+          style={{
+            scrollbarWidth: 'none', /* Firefox */
+            msOverflowStyle: 'none', /* Internet Explorer 10+ */
+          }}
+        >
           {categories.map((category, index) => (
             <LocalizedClientLink href={category.link} key={index}>
               <div className="group cursor-pointer">

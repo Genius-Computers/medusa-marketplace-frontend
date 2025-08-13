@@ -74,7 +74,7 @@ export default async function Nav(props: { params: { countryCode: string } }) {
 
             <div className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer">
               <LocalizedClientLink href="/" className="text-4xl font-bold">
-                <span className="font-['Biduan']">GENCSS</span>
+                <span className="font-['Biduan']">MARS LINK</span>
               </LocalizedClientLink>
             </div>
 

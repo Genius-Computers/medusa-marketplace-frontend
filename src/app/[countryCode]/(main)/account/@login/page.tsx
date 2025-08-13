@@ -4,7 +4,7 @@ import LoginTemplate from "@modules/account/templates/login-template"
 
 export const metadata: Metadata = {
   title: "Sign in",
-  description: "Sign in to your Gencss account.",
+  description: "Sign in to your Mars Link account.",
 }
 
 export default function Login() {

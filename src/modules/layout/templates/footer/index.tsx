@@ -32,7 +32,7 @@ export default async function Footer() {
         {/* Store description */}
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-4">
-            <span className="font-['Biduan']">GENCSS</span>
+            <span className="font-['Biduan']">MARS LINK</span>
           </h2>
           <p className="text-gray-400 max-w-3xl">
             Discover premium tech products with our sleek, modern e-commerce
@@ -115,7 +115,7 @@ export default async function Footer() {
 
         {/* Bottom bar */}
         <div className="flex items-center justify-between pt-8 border-t border-gray-800">
-          <p className="text-gray-400">Copyright© {currentYear} GENCSS</p>
+          <p className="text-gray-400">Copyright© {currentYear} MARS LINK</p>
 
           <div className="flex items-center gap-8">
             {/* Language selector */}

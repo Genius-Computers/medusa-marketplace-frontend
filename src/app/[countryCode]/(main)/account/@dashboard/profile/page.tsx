@@ -12,7 +12,7 @@ import { retrieveCustomer } from "@lib/data/customer"
 
 export const metadata: Metadata = {
   title: "Profile",
-  description: "View and edit your Gencss profile.",
+  description: "View and edit your Mars Link profile.",
 }
 
 export default async function Profile() {

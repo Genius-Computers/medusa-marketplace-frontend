@@ -4,9 +4,9 @@ import { Metadata } from "next"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 export const metadata: Metadata = {
-  title: "About Us - GENCSS Electronics Store",
+  title: "About Us - MARS LINK Electronics Store",
   description:
-    "Discover GENCSS - your premier destination for cutting-edge electronics. Learn about our commitment to innovation, quality, and sustainable technology solutions.",
+    "Discover MARS LINK - your premier destination for cutting-edge electronics. Learn about our commitment to innovation, quality, and sustainable technology solutions.",
 }
 
 const AboutPage = () => {
@@ -14,7 +14,7 @@ const AboutPage = () => {
     <div className="container mx-auto px-4 py-12 max-w-6xl">
       {/* Hero Section */}
       <div className="mb-8">
-      <span className="font-['Biduan'] text-9xl">GENCSS</span>
+      <span className="font-['Biduan'] text-9xl">MARS LINK</span>
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
           We are here to make your digital 
           life a true reflection of your 

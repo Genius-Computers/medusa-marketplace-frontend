@@ -19,7 +19,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   const product = await listProducts({
     countryCode: params.countryCode,
-    queryParams: { handle },
+    queryParams: { handle } as any,
   }).then(({ response }) => response.products[0])
 
   if (!product) {

@@ -6,10 +6,12 @@ const SearchResults = ({
   products,
   searchTerm,
   isPending,
+  onNavigate,
 }: {
   products: HttpTypes.StoreProduct[]
   searchTerm: string
   isPending: boolean
+  onNavigate?: () => void
 }) => {
   return (
     
@@ -20,6 +22,7 @@ const SearchResults = ({
               key={product.id}
               href={`/products/${product.handle}`}
               className="group"
+              onClick={() => onNavigate && onNavigate()}
             >
               <div className="flex items-center gap-3 p-3 hover:bg-gray-50 cursor-pointer rounded-lg transition-colors duration-150">
                 {/* Product Thumbnail */}

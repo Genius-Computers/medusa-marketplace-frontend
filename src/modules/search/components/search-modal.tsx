@@ -57,6 +57,7 @@ function SearchModal({
                 <SearchFormMobile
                   regionId={regionId}
                   searchAction={searchAction}
+                  onNavigate={close}
                 />
               </Dialog.Panel>
             </Transition.Child>

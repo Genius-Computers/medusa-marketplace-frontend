@@ -58,33 +58,33 @@ export default async function Nav(props: { params: { countryCode: string } }) {
       <div className="bg-white shadow-md text-black">
         <div className="md:container mx-auto px-4">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-8">
-              <div className="flex items-center gap-6">
+            <div className="flex items-center gap-8 w-full justify-start">
+              <div className="flex items-center gap-2">
                 <LocalizedClientLink href="/categories/smart-phone">
-                  <Smartphone className="w-6 h-6" />
+                  <Smartphone className="w-5 h-5" />
                 </LocalizedClientLink>
                 <LocalizedClientLink href="/categories/network-infrastructure">
-                  <Router className="w-6 h-6" />
+                  <Router className="w-5 h-5" />
                 </LocalizedClientLink>
                 <LocalizedClientLink href="/categories/biomedical-equipment">
-                  <BriefcaseMedical className="w-6 h-6" />
+                  <BriefcaseMedical className="w-5 h-5" />
                 </LocalizedClientLink>
               </div>
             </div>
 
-            <div className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer">
-              <LocalizedClientLink href="/" className="text-4xl font-bold">
+            <div className="cursor-pointer w-full text-center whitespace-nowrap">
+              <LocalizedClientLink href="/" className="md:text-4xl text-2xl font-bold">
                 <span className="font-['Biduan']">MARS LINK</span>
               </LocalizedClientLink>
             </div>
 
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2 w-full justify-end">
               <SearchProduct params={props.params} />
               <LocalizedClientLink
                 href="/account"
                 className="text-sm hover:text-gray-600"
               >
-                <User className="w-6 h-6 cursor-pointer" />
+                <User className="w-5 h-5 cursor-pointer" />
               </LocalizedClientLink>
               <Suspense
                 fallback={
@@ -93,7 +93,7 @@ export default async function Nav(props: { params: { countryCode: string } }) {
                     href="/cart"
                     data-testid="nav-cart-link"
                   >
-                    <ShoppingBag className="w-6 h-6 cursor-pointer" />
+                    <ShoppingBag className="w-5 h-5 cursor-pointer" />
                     <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                       0
                     </span>

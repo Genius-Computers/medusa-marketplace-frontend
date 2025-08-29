@@ -10,9 +10,11 @@ import { useSearch } from "../hooks/use-search"
 function SearchFormMobile({
   regionId,
   searchAction,
+  onNavigate,
 }: {
   regionId: string
   searchAction: (regionId: string, searchTerm: string) => Promise<any[]>
+  onNavigate?: () => void
 }) {
   const { searchTerm, products, showResults, isPending, clearSearch, handleInputChange, handleSearch } = useSearch(regionId, searchAction)
 
@@ -47,7 +49,7 @@ function SearchFormMobile({
         </div>
       </div>
       {showResults && (
-        <SearchResults products={products} searchTerm={searchTerm} isPending={isPending} />
+        <SearchResults products={products} searchTerm={searchTerm} isPending={isPending} onNavigate={onNavigate} />
       )}
     </div>
   )

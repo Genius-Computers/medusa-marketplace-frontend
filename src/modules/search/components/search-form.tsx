@@ -35,7 +35,7 @@ function SearchForm({
             value={searchTerm}
             onChange={handleInputChange}
             placeholder="Search for products"
-            className="min-w-96 h-10 pr-8 md:block hidden"
+            className="h-10 pr-8 md:block hidden"
           />
           {searchTerm && (
             <X
@@ -64,11 +64,15 @@ function SearchForm({
 
       {/* Search Results Dropdown */}
       {showResults && (
-        <div className="sm:hidden absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-50 max-h-96 overflow-y-auto">
+        <div className="sm:absolute absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-50 max-h-96 overflow-y-auto">
           <SearchResults
             products={products}
             searchTerm={searchTerm}
             isPending={isPending}
+            onNavigate={() => {
+              clearSearch()
+              close()
+            }}
           />
         </div>
       )}
